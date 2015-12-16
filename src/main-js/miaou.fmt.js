@@ -110,20 +110,20 @@ miaou(function(fmt){
 				var bu = (m[1]||"https://")+m[2]+m[3];
 				if (!noThumb && bu[bu.length-1]!=='m') {
 					// use thumbnail for imgur images whenever possible
-					lout.push('<img href='+bu+'.'+m[4]+' src='+bu+'m.'+m[4]+'>');
+					lout.push('<a href='+bu+'.'+m[4]+'<img src='+bu+'m.'+m[4]+'></a>');
 				} else {
-					lout.push('<img src='+bu+'.'+m[4]+'>');
+					lout.push('<a href='+bu+'.'+m[4]+'<img src='+bu+'.'+m[4]+'></a>');
 				}
 				continue;
 			}
 			if (m=s.match(/^\s*(https?:\/\/[^\s<>"]+\/[^\s<>"]+)\.(bmp|png|webp|gif|jpg|jpeg|svg)\s*$/)) {
 				 // exemple : http://mustachify.me/?src=http://www.librarising.com/astrology/celebs/images2/QR/queenelizabethii.jpg
-				lout.push('<img src="'+m[1]+'.'+m[2]+'">');
+				lout.push('<a href="'+m[1]+'.'+m[2]+'"><img src="'+m[1]+'.'+m[2]+'"></a>');
 				continue;
 			}
 			if (m=s.match(/^\s*(https?:\/\/[^\s<>?"]+\/[^\s<>"]+)\.(bmp|png|webp|gif|jpg|jpeg|svg)(\?[^\s<>?"]*)?\s*$/)) {
 				// exemple : http://md1.libe.com/photo/566431-unnamed.jpg?height=600&ratio_x=03&ratio_y=02&width=900
-				lout.push('<img src="'+m[1]+'.'+m[2]+(m[3]||'')+'">');
+				lout.push('<a href="'+m[1]+'.'+m[2]+(m[3]||'')+'"><img src="'+m[1]+'.'+m[2]+(m[3]||'')+'"></a>');
 				continue;
 			}
 			
